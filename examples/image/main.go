@@ -6,6 +6,8 @@ import (
 	"time"
 
 	"github.com/disintegration/imaging"
+
+	rgbmatrix "github.com/zaggash/go-rpi-rgb-led-matrix"
 )
 
 var (
@@ -33,12 +35,12 @@ func main() {
 	config.Parallel = *parallel
 	config.ChainLength = *chain
 	config.Brightness = *brightness
-	config.HardwareMapping = *hardware_mapping
+	config.GPIOMapping = *hardware_mapping
 	config.ShowRefreshRate = *show_refresh
 	config.InverseColors = *inverse_colors
 	config.DisableHardwarePulsing = *disable_hardware_pulsing
 
-	m, err := rgbmatrix.NewRGBLedMatrix(config)
+	m, err := rgbmatrix.NewRGBLedMatrix(config, nil)
 	fatal(err)
 
 	tk := rgbmatrix.NewToolKit(m)

@@ -55,8 +55,8 @@ Examples
 Setting all the pixels to white:
 
 ```go
-// create a new Matrix instance with the DefaultConfig
-m, _ := rgbmatrix.NewRGBLedMatrix(&rgbmatrix.DefaultConfig)
+// create a new Matrix instance with the DefaultConfig and if needed the Runtimeconfig
+m, _ := rgbmatrix.NewRGBLedMatrix(&rgbmatrix.DefaultConfig, nil)
 
 // create the Canvas, implements the image.Image interface
 c := rgbmatrix.NewCanvas(m)
@@ -72,8 +72,8 @@ c.Render()
 Playing a GIF into your matrix during 30 seconds:
 
 ```go
-// create a new Matrix instance with the DefaultConfig
-m, _ := rgbmatrix.NewRGBLedMatrix(&rgbmatrix.DefaultConfig)
+// create a new Matrix instance with the DefaultConfig and if needed the Runtimeconfig
+m, _ := rgbmatrix.NewRGBLedMatrix(&rgbmatrix.DefaultConfig, nil)
 
 // create a ToolKit instance
 tk := rgbmatrix.NewToolKit(m)

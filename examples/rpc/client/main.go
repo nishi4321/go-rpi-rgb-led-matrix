@@ -6,6 +6,8 @@ import (
 	"time"
 
 	"github.com/zaggash/go-rpi-rgb-led-matrix/rpc"
+
+	rgbmatrix "github.com/zaggash/go-rpi-rgb-led-matrix"
 )
 
 var (

@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 
+	rgbmatrix "github.com/zaggash/go-rpi-rgb-led-matrix"
 	"github.com/zaggash/go-rpi-rgb-led-matrix/rpc"
 )
 
@@ -25,12 +26,12 @@ func main() {
 	config.Parallel = *parallel
 	config.ChainLength = *chain
 	config.Brightness = *brightness
-	config.HardwareMapping = *hardware_mapping
+	config.GPIOMapping = *hardware_mapping
 	config.ShowRefreshRate = *show_refresh
 	config.InverseColors = *inverse_colors
 	config.DisableHardwarePulsing = *disable_hardware_pulsing
 
-	m, err := rgbmatrix.NewRGBLedMatrix(config)
+	m, err := rgbmatrix.NewRGBLedMatrix(config, nil)
 	fatal(err)
 
 	rpc.Serve(m)
