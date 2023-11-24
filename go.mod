@@ -6,7 +6,6 @@ require (
 	github.com/disintegration/imaging v1.6.2
 	github.com/fogleman/gg v1.3.0
 	github.com/nsf/termbox-go v1.1.1
-	github.com/tfk1410/go-rpi-rgb-led-matrix v0.0.0-20210404121211-ed43f29cbccb
 	golang.org/x/exp/shiny v0.0.0-20231110203233-9a3e6036ecaa
 	golang.org/x/mobile v0.0.0-20231108233038-35478a0c49da
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c
