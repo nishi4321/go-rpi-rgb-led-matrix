@@ -4,8 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"image/color"
-
-	"github.com/mcuadros/go-rpi-rgb-led-matrix"
 )
 
 var (

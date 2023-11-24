@@ -5,7 +5,7 @@ import (
 	"image/color"
 	"net/rpc"
 
-	"github.com/mcuadros/go-rpi-rgb-led-matrix"
+	rgbmatrix "github.com/zaggash/go-rpi-rgb-led-matrix"
 )
 
 func init() {
@@ -76,4 +76,8 @@ func (m *Client) Set(position int, c color.Color) {
 // Close finalizes the ws281x interface
 func (c *Client) Close() error {
 	return c.Apply(make([]color.Color, 2048))
+}
+
+func (c *Client) GetBrightness() int {
+	return int(C.led_matrix_get_brightness(c))
 }

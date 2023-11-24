@@ -105,6 +105,14 @@ func (m *MatrixMock) Geometry() (width, height int) {
 	return 64, 32
 }
 
+func (m *MatrixMock) GetBrightness() int {
+	return 100
+}
+
+func (m *MatrixMock) SetBrightness(brightness int) {
+	m.called["SetBrightness"] = brightness
+}
+
 func (m *MatrixMock) Initialize() error {
 	m.called["Initialize"] = true
 	return nil

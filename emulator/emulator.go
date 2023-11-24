@@ -202,3 +202,10 @@ func (e *Emulator) Set(position int, c color.Color) {
 func (e *Emulator) Close() error {
 	return nil
 }
+
+// Those new functions have no use with the emulator
+func (e *Emulator) GetBrightness() int {
+	return 0
+}
+
+func (e *Emulator) SetBrightness(brightness int) {}
