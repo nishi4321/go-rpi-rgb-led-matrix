@@ -79,5 +79,7 @@ func (c *Client) Close() error {
 }
 
 func (c *Client) GetBrightness() int {
-	return int(C.led_matrix_get_brightness(c))
+	return 0
+}
+func (c *Client) SetBrightness(int) {
 }
