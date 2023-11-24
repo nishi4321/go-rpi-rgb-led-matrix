@@ -22,7 +22,7 @@ Then you will get an **expected** error like this:
 
 ```
 # github.com/zaggash/go-rpi-rgb-led-matrix
-../../go/pkg/mod/github.com/zaggash/go-rpi-rgb-led-matrix@v0.0.0-20180401002551-b26063b3169a/matrix.go:6:10: fatal error: led-matrix-c.h: No such file or directory
+../../../go/pkg/mod/github.com/zaggash/go-rpi-rgb-led-matrix@v0.0.0-20231124140309-bda7481167a0/matrix.go:6:10: fatal error: led-matrix-c.h: No such file or directory
     6 | #include <led-matrix-c.h>
       |          ^~~~~~~~~~~~~~~~
 compilation terminated.
@@ -31,15 +31,15 @@ compilation terminated.
 This happens because you need to compile the `rgbmatrix` C bindings. Using the path provided to the go mod package:
 ```sh
 cd $GOPATH/go/pkg/mod/github.com/zaggash/go-rpi-rgb-led-matrix@v0.0.0-20180401002551-b26063b3169a/
-chmod 700 .
-mkdir lib
-cd lib
+chmod u+w ./
+mkdir ./lib && cd lib
 git clone https://github.com/hzeller/rpi-rgb-led-matrix.git
 cd rpi-rgb-led-matrix
 make -j
 ```
 
 This will compile the latest version of the library. The latest version tested with the binding is always the one as the submodule in this repo. Try with that commit if you encounter any issues.
+This have to be compiled for the destination architecture that will run the Go binary.
 
 After this is done go back to your project and execute the go get command again. This should now work:
 
@@ -48,19 +48,6 @@ $ go get -v github.com/zaggash/go-rpi-rgb-led-matrix
 go: finding github.com/zaggash/go-rpi-rgb-led-matrix latest
 github.com/zaggash/go-rpi-rgb-led-matrix
 ```
-
-Led-slowdown-gpio
---------
-
-In my tests I often require to change the value of the led-slowdown-gpio option from the default 1. It is not possible right now to change this option through the binding. The way to go about it is to go into the go mod package directory and into the rpi-rgb-led-matrix library. After that edit the `lib/Makefile` uncomment the line `DEFINES+=-DRGB_SLOWDOWN_GPIO` and change it to the appropriate value. Compile the whole library and rebuild your final project with all dependant packages and the setting should be applied. Example:
-```sh
-cd $GOPATH/go/pkg/mod/github.com/zaggash/go-rpi-rgb-led-matrix@v0.0.0-20180401002551-b26063b3169a/lib/rpi-rgb-led-matrix
-sed -i 's/.*RGB_SLOWDOWN_GPIO.*/DEFINE+=-DRGB_SLOWDOWN_GPIO=2/' lib/Makefile
-make -j
-# go back o your project
-go build -a
-```
-
 
 Examples
 --------
