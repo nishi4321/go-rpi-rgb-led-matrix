@@ -9,9 +9,9 @@ import (
 // Canvas is a image.Image representation of a WS281x matrix, it implements
 // image.Image interface and can be used with draw.Draw for example
 type Canvas struct {
-	w, h   int
-	m      Matrix
-	closed bool
+	w, h int
+	m    Matrix
+	//closed bool // Unused ?
 }
 
 // NewCanvas returns a new Canvas using the given width and height and creates
@@ -56,7 +56,7 @@ func (c *Canvas) position(x, y int) int {
 
 // Clear set all the leds on the matrix with color.Black
 func (c *Canvas) Clear() error {
-	draw.Draw(c, c.Bounds(), &image.Uniform{color.Black}, image.ZP, draw.Src)
+	draw.Draw(c, c.Bounds(), &image.Uniform{color.Black}, image.Point{}, draw.Src)
 	return c.m.Render()
 }
 

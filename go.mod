@@ -6,8 +6,8 @@ require (
 	github.com/disintegration/imaging v1.6.2
 	github.com/fogleman/gg v1.3.0
 	github.com/nsf/termbox-go v1.1.1
-	golang.org/x/exp/shiny v0.0.0-20231110203233-9a3e6036ecaa
-	golang.org/x/mobile v0.0.0-20231108233038-35478a0c49da
+	golang.org/x/exp/shiny v0.0.0-20231127185646-65229373498e
+	golang.org/x/mobile v0.0.0-20231127183840-76ac6878050a
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c
 )
 
@@ -22,5 +22,5 @@ require (
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
 	golang.org/x/image v0.14.0 // indirect
-	golang.org/x/sys v0.14.0 // indirect
+	golang.org/x/sys v0.15.0 // indirect
 )

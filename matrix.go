@@ -306,19 +306,11 @@ func NewRGBLedMatrix(config *HardwareConfig, rtconfig *RuntimeConfig) (c Matrix,
 }
 
 func isMatrixEmulator() bool {
-	if os.Getenv(MatrixEmulatorENV) == "1" {
-		return true
-	}
-
-	return false
+	return os.Getenv(MatrixEmulatorENV) == "1"
 }
 
 func isTerminalMatrixEmulator() bool {
-	if os.Getenv(TerminalMatrixEmulatorENV) == "1" {
-		return true
-	}
-
-	return false
+	return os.Getenv(TerminalMatrixEmulatorENV) == "1"
 }
 
 func buildMatrixEmulator(config *HardwareConfig) Matrix {
