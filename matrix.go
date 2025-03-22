@@ -44,8 +44,8 @@ import (
 	"strings"
 	"unsafe"
 
-	"github.com/zaggash/go-rpi-rgb-led-matrix/emulator"
-	"github.com/zaggash/go-rpi-rgb-led-matrix/terminal"
+	"github.com/nishi4321/go-rpi-rgb-led-matrix/emulator"
+	"github.com/nishi4321/go-rpi-rgb-led-matrix/terminal"
 )
 
 var DefaultRtConfig = RuntimeConfig{

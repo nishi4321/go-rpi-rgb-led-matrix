@@ -1,4 +1,4 @@
-module github.com/zaggash/go-rpi-rgb-led-matrix
+module github.com/nishi4321/go-rpi-rgb-led-matrix
 
 go 1.21
 

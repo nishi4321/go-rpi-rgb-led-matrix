@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 
-	rgbmatrix "github.com/zaggash/go-rpi-rgb-led-matrix"
-	"github.com/zaggash/go-rpi-rgb-led-matrix/rpc"
+	rgbmatrix "github.com/nishi4321/go-rpi-rgb-led-matrix"
+	"github.com/nishi4321/go-rpi-rgb-led-matrix/rpc"
 )
 
 var (

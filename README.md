@@ -1,11 +1,11 @@
-# go-rpi-rgb-led-matrix [![GoDoc](https://godoc.org/github.com/zaggash/go-rpi-rgb-led-matrix?status.svg)](https://godoc.org/github.com/zaggash/go-rpi-rgb-led-matrix)
+# go-rpi-rgb-led-matrix [![GoDoc](https://godoc.org/github.com/nishi4321/go-rpi-rgb-led-matrix?status.svg)](https://godoc.org/github.com/nishi4321/go-rpi-rgb-led-matrix)
 <img width="250" src="https://cloud.githubusercontent.com/assets/1573114/20248154/c17c1f2e-a9dd-11e6-805b-bf7d8ee73121.gif" align="right" />
 
 Go binding for [`rpi-rgb-led-matrix`](https://github.com/hzeller/rpi-rgb-led-matrix) an excellent C++ library to control [RGB LED displays](https://learn.adafruit.com/32x16-32x32-rgb-led-matrix/overview) with Raspberry Pi GPIO.
 
-This library includes the basic bindings to control de LED Matrix directly and also a convenient [ToolKit](https://godoc.org/github.com/zaggash/go-rpi-rgb-led-matrix#ToolKit) with more high level functions. Also some [examples](https://github.com/zaggash/go-rpi-rgb-led-matrix/tree/master/examples) are included to test the library and the configuration.
+This library includes the basic bindings to control de LED Matrix directly and also a convenient [ToolKit](https://godoc.org/github.com/nishi4321/go-rpi-rgb-led-matrix#ToolKit) with more high level functions. Also some [examples](https://github.com/nishi4321/go-rpi-rgb-led-matrix/tree/master/examples) are included to test the library and the configuration.
 
-The [`Canvas`](https://godoc.org/github.com/zaggash/go-rpi-rgb-led-matrix#Canvas) struct implements the [`image.Image`](https://golang.org/pkg/image/#Image) interface from the Go standard library. This makes the interaction with the matrix simple as work with a normal image in Go, allowing the usage of any Go library build around the `image.Image` interface.
+The [`Canvas`](https://godoc.org/github.com/nishi4321/go-rpi-rgb-led-matrix#Canvas) struct implements the [`image.Image`](https://golang.org/pkg/image/#Image) interface from the Go standard library. This makes the interaction with the matrix simple as work with a normal image in Go, allowing the usage of any Go library build around the `image.Image` interface.
 
 To learn about the configuration and the wiring go to the [original library](https://github.com/hzeller/rpi-rgb-led-matrix), is highly detailed and well explained. 
 
@@ -15,14 +15,14 @@ Installation
 The recommended way to add `go-rpi-rgb-led-matrix` package into your project is:
 
 ```sh
-go get -v github.com/zaggash/go-rpi-rgb-led-matrix
+go get -v github.com/nishi4321/go-rpi-rgb-led-matrix
 ```
 
 Then you will get an **expected** error like this:
 
 ```
-# github.com/zaggash/go-rpi-rgb-led-matrix
-../../../go/pkg/mod/github.com/zaggash/go-rpi-rgb-led-matrix@v0.0.0-20231124140309-bda7481167a0/matrix.go:6:10: fatal error: led-matrix-c.h: No such file or directory
+# github.com/nishi4321/go-rpi-rgb-led-matrix
+../../../go/pkg/mod/github.com/nishi4321/go-rpi-rgb-led-matrix@v0.0.0-20231124140309-bda7481167a0/matrix.go:6:10: fatal error: led-matrix-c.h: No such file or directory
     6 | #include <led-matrix-c.h>
       |          ^~~~~~~~~~~~~~~~
 compilation terminated.
@@ -30,7 +30,7 @@ compilation terminated.
 
 This happens because you need to compile the `rgbmatrix` C bindings. Using the path provided to the go mod package:
 ```sh
-cd $GOPATH/go/pkg/mod/github.com/zaggash/go-rpi-rgb-led-matrix@v0.0.0-20180401002551-b26063b3169a/
+cd $GOPATH/go/pkg/mod/github.com/nishi4321/go-rpi-rgb-led-matrix@v0.0.0-20180401002551-b26063b3169a/
 chmod u+w ./
 mkdir ./lib && cd lib
 git clone https://github.com/hzeller/rpi-rgb-led-matrix.git
@@ -44,9 +44,9 @@ This have to be compiled for the destination architecture that will run the Go b
 After this is done go back to your project and execute the go get command again. This should now work:
 
 ```sh
-$ go get -v github.com/zaggash/go-rpi-rgb-led-matrix
-go: finding github.com/zaggash/go-rpi-rgb-led-matrix latest
-github.com/zaggash/go-rpi-rgb-led-matrix
+$ go get -v github.com/nishi4321/go-rpi-rgb-led-matrix
+go: finding github.com/nishi4321/go-rpi-rgb-led-matrix latest
+github.com/nishi4321/go-rpi-rgb-led-matrix
 ```
 
 Examples
@@ -94,7 +94,7 @@ close <- true
 The image of the header was recorded using this few lines, the running _Mario_ gif, and three 32x64 pannels. 
 <img src="https://cloud.githubusercontent.com/assets/1573114/20248173/2e2f97ae-a9de-11e6-95e6-e0548199501d.gif" align="right" width="100" />
 
-Check the folder [`examples`](https://github.com/zaggash/go-rpi-rgb-led-matrix/tree/master/examples) folder for more examples
+Check the folder [`examples`](https://github.com/nishi4321/go-rpi-rgb-led-matrix/tree/master/examples) folder for more examples
 
 
 Matrix Emulation
