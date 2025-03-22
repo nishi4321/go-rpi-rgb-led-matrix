@@ -73,6 +73,7 @@ var DefaultConfig = HardwareConfig{
 	DisableHardwarePulsing: false,
 	InverseColors:          false,
 	RGBSequence:            "RGB",
+	DisableBusyWaiting:     false,
 }
 
 // RuntimeConfig
@@ -190,6 +191,10 @@ type HardwareConfig struct {
 	// These are if you have a different kind of LED panel where the Red, Green and Blue LEDs are mixed up
 	// Default: "RGB"
 	RGBSequence string
+
+	// This allows to switch from busy waiting to sleep waiting when limiting the refresh rate.
+	// Default: false
+	DisableBusyWaiting bool
 }
 
 func (c *HardwareConfig) geometry() (width, height int) {
@@ -237,6 +242,12 @@ func (c *HardwareConfig) toC() *C.struct_RGBLedMatrixOptions {
 		C.set_inverse_colors(o, C.int(1))
 	} else {
 		C.set_inverse_colors(o, C.int(0))
+	}
+
+	if c.DisableBusyWaiting {
+		o.disable_busy_waiting = true
+	} else {
+		o.disable_busy_waiting = false
 	}
 
 	return o
