@@ -193,6 +193,7 @@ type HardwareConfig struct {
 	RGBSequence string
 
 	// This allows to switch from busy waiting to sleep waiting when limiting the refresh rate.
+	//
 	// Default: false
 	DisableBusyWaiting bool
 }
